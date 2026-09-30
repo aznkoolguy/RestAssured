@@ -1,3 +1,15 @@
-<modelVersion>4.0.0</modelVersion>
-<groupId>RestAssuredTraining</groupId>
-<artifactId>RestAssuredTraining</artifactId>
+package day;
+
+import org.testng.annotations.Test;
+import io.restassured.RestAssured.*
+import io.restassured.matcher.RestAssuredMatchers.*
+import org.hamcrest.Matchers.*
+
+public class HTTPRequests {
+
+
+    @Test
+    Run | Debug
+    void getUser()
+    {
+        given()
