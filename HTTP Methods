@@ -13,3 +13,12 @@ public class HTTPRequests {
     void getUser()
     {
         given()
+
+        when()
+
+        then()
+    }
+
+
+
+
