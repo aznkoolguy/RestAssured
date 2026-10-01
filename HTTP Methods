@@ -15,8 +15,17 @@ public class HTTPRequests {
         given()
 
         when()
-
+            .get("https://reqres.in/api/users/2")
         then()
+            .statusCode(200)
+            .body("page",equalTo(2))
+            .log().all();
+
+    }
+
+    void createUser()
+    {
+
     }
 
 
