@@ -24,10 +24,29 @@ public class HTTPRequests {
     }
 
     void createUser()
-    {
 
+    {
+        HashMap hm=new HashMap();
+        data.put("name","pavan");
+        data.put("job","trainer");
+
+
+        given()
+            .contentType("application.json")
+            .body(data)
+
+        .when
+            .post("https://reqres.in/api/users"+id)
+            .jsonPath().getInt("id");
+
+        .then()
+            .statusCode(201)
+            .log().all();
     }
 
 
+    @Test
+    Run | Debug
+    void createUser()
 
 
