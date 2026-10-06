@@ -54,14 +54,18 @@ public class DiffWaysToCreatePostRequestBody {
 
 
 
-    //1) Post request body using Hashmap
+    //1) Post request body using org.json library
 
     @Test
     Run | Debug
-    void testPostusingHashMap()
+    void testPostusingJsonLibrary()
 
     {
+        JSONObject data=new JSONObject();
 
+        data.put("n", DEFAULT_URL_ENCODING_ENABLED)
+
+        
         HashMap data=new HashMap();
 
         data.put("name","Scott");
