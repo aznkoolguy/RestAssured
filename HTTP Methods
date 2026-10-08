@@ -8,10 +8,12 @@ import org.hamcrest.Matchers.*
 public class HTTPRequests {
 
 
-    @Test
+    @Test(priority=1)
     Run | Debug
-    void getUser()
+    void testPostusingHashMap()
+
     {
+        
         given()
 
         when()
@@ -73,7 +75,6 @@ public class DiffWaysToCreatePostRequestBody {
         data.put("phone","123456");
 
         String courseArr[]= {"C","C++"};
-
         data.put("courses:, courseArr);
 
 
@@ -95,9 +96,6 @@ public class DiffWaysToCreatePostRequestBody {
             .header("Content-Type","application/json; charset=utf-8")
             .log().all();
 
-
-
-}
 
 
 //deleting student record
