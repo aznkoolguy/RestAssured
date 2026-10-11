@@ -13,7 +13,16 @@ public class HTTPRequests {
     void testPostusingHashMap()
 
     {
-        
+        HashMap data=new HashMap();
+
+        data.put("name","Scott");
+        data.put("location","France");
+        data.put("phone","123456");
+
+        String courseArr[]= {"C","C++"};
+        data.put("courses", courseArr);
+
+
         given()
 
         when()
