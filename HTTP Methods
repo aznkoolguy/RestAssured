@@ -112,6 +112,16 @@ public class DiffWaysToCreatePostRequestBody {
     void testPostusingPOJO()
 
     {
+        Pojo_PostRequest data=new Pojo_PostRequest();
+
+        data.setName("Scott");
+        data.setLocation("France");
+        data.setPhone("123456");
+
+        String coursesArr[]= {"C","C++"};
+
+        data.setCourses(courseArr);
+
         JSONObject data=new JSONObject();
 
         data.put("n", DEFAULT_URL_ENCODING_ENABLED)
