@@ -67,7 +67,7 @@ public class DiffWaysToCreatePostRequestBody {
 
     //1) Post request body using org.json library
 
-    @Test
+    @Test(priority=1)
     Run | Debug
     void testPostusingJsonLibrary()
 
@@ -89,7 +89,7 @@ public class DiffWaysToCreatePostRequestBody {
 
         given()
             .contentType("application/json")
-            .body(data)
+            .body(data.toString())
 
         .when()
             .post("http://localhost:3000/students")
@@ -105,6 +105,45 @@ public class DiffWaysToCreatePostRequestBody {
             .header("Content-Type","application/json; charset=utf-8")
             .log().all();
 
+//3 Post request body using POJO Class
+
+@Test(priority=1)
+    Run | Debug
+    void testPostusingPOJO()
+
+    {
+        JSONObject data=new JSONObject();
+
+        data.put("n", DEFAULT_URL_ENCODING_ENABLED)
+
+        
+        HashMap data=new HashMap();
+
+        data.put("name","Scott");
+        data.put("location","France");
+        data.put("phone","123456");
+
+        String courseArr[]= {"C","C++"};
+        data.put("courses:, courseArr);
+
+
+        given()
+            .contentType("application/json")
+            .body(data.toString())
+
+        .when()
+            .post("http://localhost:3000/students")
+
+        .then()
+            .statusCode(201)
+            .body("name",equalTo("Scott"))
+            .body("location", equalTo("France"))
+            .body("phone", equalTo("123456"))
+            .body("location", equalTo("France"))
+            .body("courses[0]","C")
+            .body("courses[1]","C++")
+            .header("Content-Type","application/json; charset=utf-8")
+            .log().all();
 
 
 //deleting student record
